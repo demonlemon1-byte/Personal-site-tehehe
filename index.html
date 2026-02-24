@@ -399,6 +399,47 @@ function prevTrack() {
 // Initial load
 loadTrack(currentIndex);
 </script>
+
+    <section id="slideshows" class="grey-section">
+    <h2>Fun Google Slides :3</h2>
+    <p>Check out some epic presentations! Pick one from the dropdown to view it. Also, some assets such as photos may not appear, that is not my fault, blame Google ig</p>
+
+    <div style="text-align: center; margin: 20px auto; max-width: 900px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 16px; color: white; box-shadow: 0 0 20px rgba(95,158,160,0.6);">
+        
+        <select id="slidesSelector" onchange="changeSlide(this.value)" style="width: 100%; padding: 10px; border-radius: 8px; background: #333; color: white; border: 1px solid #5f9ea0; cursor: pointer; font-family: sans-serif; margin-bottom: 20px;">
+            <!-- Options inserted via JavaScript -->
+        </select>
+
+        <iframe id="slidesFrame" src="" width="100%" height="500" style="border: 3px solid #5f9ea0; border-radius: 12px;" allowfullscreen></iframe>
+    </div>
+</section>
+
+<script>
+// List of Google Slides embeds
+const slideshows = [
+    { title: "Sonic Fan Art Showcase", url: "https://docs.google.com/presentation/d/e/2PACX-1vQEXAMPLE1/embed?start=false&loop=false&delayms=3000" },
+    { title: "My Personal Project Ideas", url: "https://docs.google.com/presentation/d/e/2PACX-1vQEXAMPLE2/embed?start=false&loop=false&delayms=3000" },
+    { title: "Random Fun Slides", url: "https://docs.google.com/presentation/d/e/2PACX-1vQEXAMPLE3/embed?start=false&loop=false&delayms=3000" }
+];
+
+// Populate dropdown
+const slidesSelector = document.getElementById("slidesSelector");
+slideshows.forEach((slide, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = slide.title;
+    slidesSelector.appendChild(option);
+});
+
+// Function to switch slides
+const slidesFrame = document.getElementById("slidesFrame");
+function changeSlide(index) {
+    slidesFrame.src = slideshows[index].url;
+}
+
+// Initial load
+changeSlide(0);
+</script>
     
 <section id="bee-script">
     <h2>The Bee Movie Script</h2>
