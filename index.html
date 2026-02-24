@@ -328,7 +328,30 @@ playlist.forEach((track, index) => {
 function loadTrack(index) {
     if (index < 0 || index >= playlist.length) return;
     const track = playlist[index];
-    // Extract track number from filename (e.g. "114. Ruler of Everything.mp3") const trackNumber = parseInt(track.file.split(".")[0]);  let baseUrl;  if (trackNumber <= 99) {     baseUrl = repo1Base; } else {     baseUrl = repo2Base; }  audio.src = baseUrl + encodeURIComponent(track.file);
+    function loadTrack(index) {
+    if (index < 0 || index >= playlist.length) return;
+
+    const track = playlist[index];
+
+    // Extract track number from filename (e.g. "114. Ruler of Everything.mp3")
+    const trackNumber = parseInt(track.file.split(".")[0]);
+
+    let baseUrl;
+
+    if (trackNumber <= 99) {
+        baseUrl = repo1Base;
+    } else {
+        baseUrl = repo2Base;
+    }
+
+    audio.src = baseUrl + encodeURIComponent(track.file);
+    trackTitle.textContent = track.display;
+
+    selector.value = index;
+
+    audio.load();
+    audio.onended = () => nextTrack();
+}
     trackTitle.textContent = track.display;
     
     // SYNC: Update the dropdown position when song changes
