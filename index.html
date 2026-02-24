@@ -193,7 +193,7 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const selector = document.getElementById("trackSelector");
 
 // REPLACE THESE URLs with your actual GitHub Pages URLs
-const baseRepo1 = "https://leandrebatts29-ai.github.io/Music-maybe-idfk/mains"; // tracks 1–99
+const baseRepo1 = "https://leandrebatts29-ai.github.io/Music-maybe-idfk/mains/"; // tracks 1–99
 const baseRepo2 = "https://leandrebatts29-ai.github.io/MusicTwo/"; // tracks 100–117
 
 // Complete playlist
@@ -330,19 +330,35 @@ playlist.forEach((track, index) => {
 
 let currentIndex = 0;
 
+function makeUrlSafe(filename) {
+    // Replace spaces with %20
+    let safe = filename.split(' ').join('%20');
+
+    // Replace special characters that break URLs
+    safe = safe.replace(/&/g, '%26'); // & → %26
+    safe = safe.replace(/!/g, '%21'); // ! → %21
+    safe = safe.replace(/\(/g, '%28'); // ( → %28
+    safe = safe.replace(/\)/g, '%29'); // ) → %29
+
+    // Add more replacements if needed
+    return safe;
+}
+
+// When loading a track
 function loadTrack(index) {
     if (index < 0 || index >= playlist.length) return;
     const track = playlist[index];
-
     const baseUrl = index < 99 ? baseRepo1 : baseRepo2;
-    audio.src = baseUrl + encodeURIComponent(track.file);
+
+    // Use the URL-safe version
+    audio.src = baseUrl + makeUrlSafe(track.file);
     trackTitle.textContent = track.display;
     selector.value = index;
 
     audio.load();
     audio.onended = () => nextTrack();
 }
-
+    
 function changeTrack(index) {
     currentIndex = parseInt(index);
     loadTrack(currentIndex);
