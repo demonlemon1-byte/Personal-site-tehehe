@@ -187,8 +187,9 @@ myArtFiles.forEach(fileName => {
 </section>
 
 <script>
-const baseUrl = "https://archive.org/download/03.-clint-eastwood/";
-
+const repo1Base = "https://raw.githubusercontent.com/leandrebatts29-ai/Music-maybe-idfk/main/mains/";
+const repo2Base = "https://raw.githubusercontent.com/leandrebatts29-ai/MusicTwo/main/";
+    
 // Your existing playlist array (keep it exactly as you had it)
 const playlist = [
     { file: "01. 5 - 4.mp3", display: "Gorillaz - 5/4 - 2001" },
@@ -327,7 +328,7 @@ playlist.forEach((track, index) => {
 function loadTrack(index) {
     if (index < 0 || index >= playlist.length) return;
     const track = playlist[index];
-    audio.src = baseUrl + encodeURIComponent(track.file);
+    // Extract track number from filename (e.g. "114. Ruler of Everything.mp3") const trackNumber = parseInt(track.file.split(".")[0]);  let baseUrl;  if (trackNumber <= 99) {     baseUrl = repo1Base; } else {     baseUrl = repo2Base; }  audio.src = baseUrl + encodeURIComponent(track.file);
     trackTitle.textContent = track.display;
     
     // SYNC: Update the dropdown position when song changes
