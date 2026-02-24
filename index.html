@@ -187,11 +187,18 @@ myArtFiles.forEach(fileName => {
 </section>
 
 <script>
-const baseUrl = "https://pub-22f246ffed3b4b179b446073a829127e.r2.dev";
-audio.src = baseUrl + encodeURIComponent(track.file);
-    
-// Your existing playlist array (keep it exactly as you had it)
+const audio = document.getElementById("audioPlayer");
+const trackTitle = document.getElementById("currentTrack");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const selector = document.getElementById("trackSelector");
+
+// REPLACE THESE URLs with your actual GitHub Pages URLs
+const baseRepo1 = "https://username.github.io/music-repo-1/"; // tracks 1–99
+const baseRepo2 = "https://username.github.io/music-repo-2/"; // tracks 100–117
+
+// Complete playlist
 const playlist = [
+    // Repo 1: tracks 1–99
     { file: "01. 5 - 4.mp3", display: "Gorillaz - 5/4 - 2001" },
     { file: "02. Tomorrow Comes Today.mp3", display: "Gorillaz - Tomorrow Comes Today - 2001" },
     { file: "03. Clint Eastwood.mp3", display: "Gorillaz - Clint Eastwood - 2001" },
@@ -200,8 +207,8 @@ const playlist = [
     { file: "06. 19 - 2000 [Soulchild Remix].mp3", display: "Gorillaz - 19-2000 (Soulchild Remix) - 2001" },
     { file: "07. Left Hand Suzuki Method.mp3", display: "Gorillaz - Left Hand Suzuki Method - 2001" },
     { file: "08. 12D3.mp3", display: "Gorillaz - 12D3 - 2001" },
-    { file: "09. Rockit.mp3", display: "Gorillaz - Rockit - 2005" },
-    { file: "10. Intro.mp3", display: "Gorillaz - Intro - 2005" },
+    { file: "09. Intro.mp3", display: "Gorillaz - Intro - 2005" },
+    { file: "10. Rockit.mp3", display: "Gorillaz - Rockit - 2005" },
     { file: "11. Kids With Guns.mp3", display: "Gorillaz - Kids With Guns - 2005" },
     { file: "12. O Green World.mp3", display: "Gorillaz - O Green World - 2005" },
     { file: "13. Dirty Harry.mp3", display: "Gorillaz - Dirty Harry - 2005" },
@@ -271,30 +278,31 @@ const playlist = [
     { file: "77. Bystanding.mp3", display: "Lemon Demon - Bystanding - 2006" },
     { file: "78. Indie Cindy & The Lo-Fi Lullabies.mp3", display: "Lemon Demon - Indie Cindy & The Lo-Fi Lullabies - 2006" },
     { file: "79. Deep In The Ocean.mp3", display: "Lemon Demon - Deep In The Ocean - 2006" },
-    { file: "80. Kaleidoskull.mp3", display: "Lemon Demon - Kaleidoskull - 2008" },
-    { file: "81. Amnesia Was Her Name.mp3", display: "Lemon Demon - Amnesia Was Her Name - 2008" },
-    { file: "82. Marketland.mp3", display: "Lemon Demon - Marketland - 2008" },
-    { file: "83. Knife Fight.mp3", display: "Lemon Demon - Knife Fight - 2008" },
-    { file: "84. Modify.mp3", display: "Lemon Demon - Modify - 2008" },
-    { file: "85. Prelude to Presents.mp3", display: "Lemon Demon - Prelude to Presents - 2012" },
-    { file: "86. Christmas Will Be Soon.mp3", display: "Lemon Demon - Christmas Will Be Soon - 2012" },
-    { file: "87. Aurora Borealis.mp3", display: "Lemon Demon - Aurora Borealis - 2012" },
-    { file: "88. SAD.mp3", display: "Lemon Demon - SAD - 2012" },
-    { file: "89. CryptoSanta.mp3", display: "Lemon Demon - CryptoSanta - 2012" },
-    { file: "90. Really Cool Wig.mp3", display: "Lemon Demon - Really Cool Wig - 2014" },
-    { file: "91. Two Trucks.mp3", display: "Lemon Demon - Two Trucks - 2014" },
-    { file: "92. Jaws.mp3", display: "Lemon Demon - Jaws - 2014" },
-    { file: "93. Lifetime Achievement Award.mp3", display: "Lemon Demon - Lifetime Achievement Award - 2016" },
-    { file: "94. Touch-Tone Telephone.mp3", display: "Lemon Demon - Touch-Tone Telephone - 2016" },
-    { file: "95. Cabinet Man.mp3", display: "Lemon Demon - Cabinet Man - 2016" },
-    { file: "96. Welcome to Tally Hall.mp3", display: "Tally Hall - Welcome to Tally Hall - 2008" },
-    { file: "97. Taken For A Ride.mp3", display: "Tally Hall - Taken For A Ride - 2008" },
-    { file: "98. The Bidding.mp3", display: "Tally Hall - The Bidding - 2008" },
-    { file: "99. Banana Man.mp3", display: "Tally Hall - Banana Man - 2008" },
-    { file: "100. The Whole World and You.mp3", display: "Tally Hall - The Whole World and You - 2008" },
-    { file: "101. &.mp3", display: "Tally Hall - & - 2011" },
-    { file: "102. Hymn for a Scarecrow.mp3", display: "Tally Hall - Hymn for a Scarecrow - 2011" },
-    { file: "103. Turn the Lights Off.mp3", display: "Tally Hall - Turn the Lights Off - 2011" },
+    { file: "80. Amnesia Was Her Name.mp3", display: "Lemon Demon - Amnesia Was Her Name - 2008" },
+    { file: "81. Marketland.mp3", display: "Lemon Demon - Marketland - 2008" },
+    { file: "82. Knife Fight.mp3", display: "Lemon Demon - Knife Fight - 2008" },
+    { file: "83. Modify.mp3", display: "Lemon Demon - Modify - 2008" },
+    { file: "84. Prelude to Presents.mp3", display: "Lemon Demon - Prelude to Presents - 2012" },
+    { file: "85. Christmas Will Be Soon.mp3", display: "Lemon Demon - Christmas Will Be Soon - 2012" },
+    { file: "86. Aurora Borealis.mp3", display: "Lemon Demon - Aurora Borealis - 2012" },
+    { file: "87. SAD.mp3", display: "Lemon Demon - SAD - 2012" },
+    { file: "88. CryptoSanta.mp3", display: "Lemon Demon - CryptoSanta - 2012" },
+    { file: "89. Really Cool Wig.mp3", display: "Lemon Demon - Really Cool Wig - 2014" },
+    { file: "90. Two Trucks.mp3", display: "Lemon Demon - Two Trucks - 2014" },
+    { file: "91. Jaws.mp3", display: "Lemon Demon - Jaws - 2014" },
+    { file: "92. Lifetime Achievement Award.mp3", display: "Lemon Demon - Lifetime Achievement Award - 2016" },
+    { file: "93. Touch-Tone Telephone.mp3", display: "Lemon Demon - Touch-Tone Telephone - 2016" },
+    { file: "94. Cabinet Man.mp3", display: "Lemon Demon - Cabinet Man - 2016" },
+    { file: "95. Welcome to Tally Hall.mp3", display: "Tally Hall - Welcome to Tally Hall - 2008" },
+    { file: "96. Taken For A Ride.mp3", display: "Tally Hall - Taken For A Ride - 2008" },
+    { file: "97. The Bidding.mp3", display: "Tally Hall - The Bidding - 2008" },
+    { file: "98. Banana Man.mp3", display: "Tally Hall - Banana Man - 2008" },
+    { file: "99. The Whole World and You.mp3", display: "Tally Hall - The Whole World and You - 2008" },
+
+    // Repo 2: tracks 100–117
+    { file: "100. &.mp3", display: "Tally Hall - & - 2011" },
+    { file: "101. Hymn for a Scarecrow.mp3", display: "Tally Hall - Hymn for a Scarecrow - 2011" },
+    { file: "102. Turn the Lights Off.mp3", display: "Tally Hall - Turn the Lights Off - 2011" },
     { file: "113. 13.mp3", display: "13131 3131 3 13 1 31313" },
     { file: "114. Ruler of Everything.mp3", display: "Tally Hall - Ruler of Everything - 2008" },
     { file: "115. Variations on a Cloud.mp3", display: "ミラクルミュージカル - Variations on a Cloud - 2012" },
@@ -309,49 +317,32 @@ const playlist = [
     { file: "124. Time Machine.mp3", display: "ミラクルミュージカル - Time Machine - 2012" },
     { file: "125. Stranded Lullaby.mp3", display: "ミラクルミュージカル - Stranded Lullaby - 2012" },
     { file: "126. Dream Sweet In Sea Major.mp3", display: "終わりは、本当に終わりじゃないよね？ - Dream Sweet in Sea Major - 1212" },
-    { file: "127. Hidden in the Sand.mp3", display: "Tally Hall - Hidden in the Sand - 2008" },
+    { file: "127. Hidden in the Sand.mp3", display: "Tally Hall - Hidden in the Sand - 2008" }
 ];
 
-let currentIndex = 0;
-const audio = document.getElementById("audioPlayer");
-const trackTitle = document.getElementById("currentTrack");
-const playPauseBtn = document.getElementById("playPauseBtn");
-const selector = document.getElementById("trackSelector");
-
-// Populate the dropdown menu automatically from the playlist array
+// Populate dropdown
 playlist.forEach((track, index) => {
-    let option = document.createElement("option");
+    const option = document.createElement("option");
     option.value = index;
     option.textContent = track.display;
     selector.appendChild(option);
 });
 
+let currentIndex = 0;
+
 function loadTrack(index) {
     if (index < 0 || index >= playlist.length) return;
     const track = playlist[index];
-    function loadTrack(index) {
-    if (index < 0 || index >= playlist.length) return;
 
-    const track = playlist[index];
-
+    const baseUrl = index < 99 ? baseRepo1 : baseRepo2;
     audio.src = baseUrl + encodeURIComponent(track.file);
     trackTitle.textContent = track.display;
-
     selector.value = index;
 
     audio.load();
     audio.onended = () => nextTrack();
 }
-    trackTitle.textContent = track.display;
-    
-    // SYNC: Update the dropdown position when song changes
-    selector.value = index; 
-    
-    audio.load();
-    audio.onended = () => nextTrack();
-}
 
-// Function for the dropdown to call
 function changeTrack(index) {
     currentIndex = parseInt(index);
     loadTrack(currentIndex);
@@ -388,7 +379,9 @@ function prevTrack() {
     playTrack();
 }
 
+// Initial load
 loadTrack(currentIndex);
+</script>
     
 <section id="bee-script">
     <h2>The Bee Movie Script</h2>
