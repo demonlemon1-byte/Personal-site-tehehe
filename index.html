@@ -72,60 +72,30 @@
 
 <script>
 const myArtFiles = [
-    "3.png",
-    "1999.png",
-    "CANNIBAL.png",
-    "DINNER!.png",
-    "F3M.png",
-    "GONE.png",
-    "HAZELMARI.png",
-    "S33K.png",
-    "T3MPRR.png",
-    "VERTICAL.png",
-    "Hazpink.png",
-    "Page 52.png",
-    "Page 53.png",
-    "Page 54.png",
-    "Page 55.png",
-    "Page 56.png",
-    "Page 57 (1).png",
-    "Page 58 (1).png",
-    "Page 59.png",
-    "Page 60.png",
-    "Page 61.png",
-    "Page 62.png",
-    "Page 63.png",
-    "Page 64.png",
-    "Page 65.png",
-    "Page 66.png",
-    "Page 67.png",
-    "2026_01_30_0gx_Kleki.png",
-    "canvas.png",
-    "Eh.png",
-    "FINALLYYY.gif",
-    "Greg test 1.png",
-    "HazelChill.png",
-    "Hazelio.png",
-    "HazelLes.png",
-    "Hazelskadadle.gif",
-    "The Black Rainbows.png",
-    "The Ocean Man.png",
-    "Drying Eyes.png",
-    "firsties.gif",
-    "Hatsune Stiku.png",
-    "IMG_20250819_14076.jpg",
-    "IMG_20251017_140647.jpg",
-    "IMG_20251020_143339.jpg",
-    "Keki.png",
-    "PMS333lands.png",
-    "Static.png",
-    "Stick-anatomy.png",
+    "3.png", "1999.png", "CANNIBAL.png", "DINNER!.png",
+    "F3M.png", "GONE.png", "HAZELMARI.png", "S33K.png",
+    "T3MPRR.png", "VERTICAL.png", "Hazpink.png",
+    "Page 52.png", "Page 53.png", "Page 54.png", "Page 55.png",
+    "Page 56.png", "Page 57 (1).png", "Page 58 (1).png",
+    "Page 59.png", "Page 60.png", "Page 61.png", "Page 62.png",
+    "Page 63.png", "Page 64.png", "Page 65.png", "Page 66.png",
+    "Page 67.png", "2026_01_30_0gx_Kleki.png", "canvas.png",
+    "Eh.png", "FINALLYYY.gif", "Greg test 1.png", "HazelChill.png",
+    "Hazelio.png", "HazelLes.png", "Hazelskadadle.gif",
+    "The Black Rainbows.png", "The Ocean Man.png", "Drying Eyes.png",
+    "firsties.gif", "Hatsune Stiku.png", "IMG_20250819_14076.jpg",
+    "IMG_20251017_140647.jpg", "IMG_20251020_143339.jpg",
+    "Keki.png", "PMS333lands.png", "Static.png", "Stick-anatomy.png",
     "StickNudity.png"
 ];
 
 const grid = document.getElementById('image-grid');
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImg');
 
-myArtFiles.forEach(fileName => {
+let currentIndex = 0; // Track which image is open
+
+myArtFiles.forEach((fileName, index) => {
     const img = document.createElement('img');
     img.src = `images/${fileName.trim()}`;
     img.alt = fileName;
@@ -137,16 +107,33 @@ myArtFiles.forEach(fileName => {
     };
 
     img.onclick = function() {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        modalImg.src = this.src;
-        modal.style.display = 'flex';
+        currentIndex = index;
+        openModal();
     };
 
     grid.appendChild(img);
 });
-</script>
 
+function openModal() {
+    modalImg.src = `images/${myArtFiles[currentIndex].trim()}`;
+    modal.style.display = 'flex';
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return; // Only if modal is open
+
+    if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % myArtFiles.length;
+        openModal();
+    } else if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + myArtFiles.length) % myArtFiles.length;
+        openModal();
+    } else if (e.key === 'Escape') {
+        modal.style.display = 'none';
+    }
+});
+</script>
     
 <section id="secrets" class="grey-section">
     <h2>Sonic's Cool Secret Area</h2>
