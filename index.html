@@ -124,12 +124,8 @@ const myArtFiles = [
 ];
 
 const grid = document.getElementById('image-grid');
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImg');
 
-let currentIndex = 0; // Track which image is open
-
-myArtFiles.forEach((fileName, index) => {
+myArtFiles.forEach(fileName => {
     const img = document.createElement('img');
     img.src = `images/${fileName.trim()}`;
     img.alt = fileName;
@@ -141,34 +137,15 @@ myArtFiles.forEach((fileName, index) => {
     };
 
     img.onclick = function() {
-        currentIndex = index;
-        openModal();
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = this.src;
+        modal.style.display = 'flex';
     };
 
     grid.appendChild(img);
 });
-
-function openModal() {
-    modalImg.src = `images/${myArtFiles[currentIndex].trim()}`;
-    modal.style.display = 'flex';
-}
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (modal.style.display !== 'flex') return; // Only if modal is open
-
-    if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % myArtFiles.length;
-        openModal();
-    } else if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + myArtFiles.length) % myArtFiles.length;
-        openModal();
-    } else if (e.key === 'Escape') {
-        modal.style.display = 'none';
-    }
-});
-</script>
-    
+</script>    
 <section id="secrets" class="grey-section">
     <h2>Sonic's Cool Secret Area</h2>
     <p>Click a g*me to view its cheats, unused content, and codes:</p>
