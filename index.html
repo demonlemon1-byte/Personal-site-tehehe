@@ -62,20 +62,15 @@
     </nav>
     
 <section id="art">
-    <h2>Art Gallery</h2>
-    <div class="gallery" id="image-grid">
-        <!-- Images will be inserted here by JavaScript -->
-    </div>
+  <h2>Art Gallery</h2>
+  <div class="gallery" id="image-grid"></div>
 </section>
 
 <div id="imageModal" class="modal" onclick="this.style.display='none'">
-    <img id="modalImg" alt="Enlarged artwork">
+  <img id="modalImg" alt="Enlarged artwork">
 </div>
 
-<!-- Keep your existing CSS for .gallery, .modal, etc. -->
-
 <script>
-// List of your image files (add/remove as needed)
 const myArtFiles = [
     "3.png",
     "1999.png",
@@ -87,7 +82,7 @@ const myArtFiles = [
     "S33K.png",
     "T3MPRR.png",
     "VERTICAL.png",
-    “Hazpink.png”,
+    "Hazpink.png",
     "Page 52.png",
     "Page 53.png",
     "Page 54.png",
@@ -99,11 +94,11 @@ const myArtFiles = [
     "Page 60.png",
     "Page 61.png",
     "Page 62.png",
-    “Page 63.png”,
-    “Page 64.png”,
-    “Page 65.png”,
-    “Page 66.png”,
-    “Page 67.png”,
+    "Page 63.png",
+    "Page 64.png",
+    "Page 65.png",
+    "Page 66.png",
+    "Page 67.png",
     "2026_01_30_0gx_Kleki.png",
     "canvas.png",
     "Eh.png",
@@ -125,26 +120,22 @@ const myArtFiles = [
     "PMS333lands.png",
     "Static.png",
     "Stick-anatomy.png",
-    "StickNudity.png",
+    "StickNudity.png"
 ];
 
 const grid = document.getElementById('image-grid');
 
 myArtFiles.forEach(fileName => {
     const img = document.createElement('img');
-    img.src = `images/${fileName.trim()}`;   // trim in case of sneaky spaces
+    img.src = `images/${fileName.trim()}`;
     img.alt = fileName;
-    img.loading = "lazy";                    // better page performance
+    img.loading = "lazy";
 
-    // Hide broken images instead of showing ugly icons
     img.onerror = function() {
         console.warn(`Image not found or failed to load: ${fileName}`);
         this.style.display = 'none';
-        // Optional: replace with placeholder
-        // this.src = 'https://via.placeholder.com/200?text=Image+Missing';
     };
 
-    // Open in modal when clicked
     img.onclick = function() {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
@@ -154,12 +145,8 @@ myArtFiles.forEach(fileName => {
 
     grid.appendChild(img);
 });
-
 </script>
-    
-    <div id="imageModal" class="modal" onclick="this.style.display='none'">
-        <img id="modalImg">
-    </div>
+
     
 <section id="secrets" class="grey-section">
     <h2>Sonic's Cool Secret Area</h2>
