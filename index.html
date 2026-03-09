@@ -133,7 +133,7 @@ const grid = document.getElementById('image-grid');
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImg');
 
-let currentIndex = 0; // Track which image is open
+let artIndex = 0; // Track which image is open
 
 myArtFiles.forEach((fileName, index) => {
     const img = document.createElement('img');
@@ -145,30 +145,30 @@ myArtFiles.forEach((fileName, index) => {
         console.warn(`Image not found or failed to load: ${fileName}`);
         this.style.display = 'none';
     };
-
-    img.onclick = function() {
-        currentIndex = index;
-        openModal();
-    };
+    
+img.onclick = function() {
+    artIndex = index;
+    openModal();
+};
 
     grid.appendChild(img);
 });
-
+    
 function openModal() {
-    modalImg.src = `images/${myArtFiles[currentIndex].trim()}`;
+    modalImg.src = `images/${myArtFiles[artIndex].trim()}`;
     modal.style.display = 'flex';
 }
-
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (modal.style.display !== 'flex') return; // Only if modal is open
-
-    if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % myArtFiles.length;
-        openModal();
-    } else if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + myArtFiles.length) % myArtFiles.length;
-        openModal();
+    
+if (e.key === 'ArrowRight') {
+    artIndex = (artIndex + 1) % myArtFiles.length;
+    openModal();
+} else if (e.key === 'ArrowLeft') {
+    artIndex = (artIndex - 1 + myArtFiles.length) % myArtFiles.length;
+    openModal();
+}
     } else if (e.key === 'Escape') {
         modal.style.display = 'none';
     }
