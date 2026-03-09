@@ -165,7 +165,8 @@ document.addEventListener('keydown', (e) => {
 if (e.key === 'ArrowRight') {
     artIndex = (artIndex + 1) % myArtFiles.length;
     openModal();
-} else if (e.key === 'ArrowLeft') {
+}
+else if (e.key === 'ArrowLeft') {
     artIndex = (artIndex - 1 + myArtFiles.length) % myArtFiles.length;
     openModal();
 }
