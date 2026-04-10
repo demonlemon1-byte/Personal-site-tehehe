@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to meh personal site :3</title>
+    <style>
+        /* Base Styling: Denim Blue Theme */
+        @font-face {
+  font-family: "LCDSolid"; /* Simplified name (no spaces) */
+  src: url("LcdSolid.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    background-color: #00008B;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-family: "LCDSolid", sans-serif; /* Applied here */
+}
+        
+        section { padding: 50px 20px; border-bottom: 2px solid rgba(255,255,255,0.2); }
+        .grey-section { background-color: #114111; } /* Example for separate color scales */
+        
+        /* Navigation (Slide 2) */
+        nav ul { list-style: none; display: flex; gap: 20px; justify-content: center; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+
+        /* Gallery Layout (Slides 4 & 5) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery img { width: 100%; cursor: pointer; transition: 0.3s; }
+        .modal {
+            display: none; position: fixed; z-index: 1; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px); justify-content: center; align-items: center;
+        }
+        .modal img { max-width: 90%; max-height: 90%; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sonic the Screensaver Art</h1>
+        <p>Idk why they went so f*ckin hard with these, but here's ALL OF THE ART from Sonic the Screensaver, you can see Cybershell's video on it <a href="../../../flash-videos-online-hehe/cyberstuff/stssv.html">Here</a></p>
+    </header>
+
+  <section id="art">
+  <div class="gallery" id="image-grid"></div>
+</section>
+
+<div id="imageModal" class="modal" onclick="this.style.display='none'">
+  <img id="modalImg" alt="Enlarged artwork">
+</div>
+
+<script>
+const myArtFiles = [
+  "SONICH_.BMP"
+  "SONIC35.BMP"
+  "SONIC29.BMP"
+  "SONIC67.BMP"
+  "SONICL_.BMP"
+  "SONICK_.BMP"
+  "SONIC66.BMP"
+  "SONIC40.BMP"
+  "SONIC61.BMP"
+  "SONIC15.BMP"
+  "SONIC34.BMP"
+  "SONIC20.BMP"
+  "SONIC0F.BMP"
+  "SONIC0B.BMP"
+  "SONIC03.BMP"
+  "SONIC43.BMP"
+  "SONIC4C.BMP"
+  "SONIC27.BMP"
+  "SONIC04.BMP"
+  "SONIC32.BMP"
+  "SONIC39.BMP"
+  "SONIC54.BMP"
+  "SONIC60.BMP"
+  "SONIC0D.BMP"
+  "SONIC65.BMP"
+  "SONIC14.BMP"
+  "SONICN_.BMP"
+  "SONIC11.BMP"
+  "SONIC28.BMP"
+  "SONIC12.BMP"
+  "SONIC19.BMP"
+  "SONIC63.BMP"
+  "SONIC21.BMP"
+  "SONIC55.BMP"
+  "SONIC57.BMP"
+  "SONIC13.BMP"
+  "SONIC51.BMP"
+  "SONIC22.BMP"
+  "SONIC31.BMP"
+  "SONIC36.BMP"
+  "SONIC44.BMP"
+  "SONIC68.BMP"
+  "SONIC37.BMP"
+  "SONIC59.BMP"
+  "SONIC24.BMP"
+  "SONIC23.BMP"
+  "SONIC53.BMP"
+  "SONIC64.BMP"
+  "SONIC18.BMP"
+  "SONIC4A.BMP"
+  "SONICJ_.BMP"
+  "SONIC62.BMP"
+  "SONIC17.BMP"
+  "SONIC08.BMP"
+  "SONIC07.BMP"
+  "SONIC38.BMP"
+  "SONICM_.BMP"
+  "SONIC05.BMP"
+  "SONIC58.BMP"
+  "SONICD_.BMP"
+  "SONIC33.BMP"
+  "SONICC_.BMP"
+  "SONIC02.BMP"
+  "SONIC50.BMP"
+  "SONIC42.BMP"
+  "SONIC4D.BMP"
+  "SONICI_.BMP"
+  "SONIC46.BMP"
+  "SONIC0A.BMP"
+  "SONICO_.BMP"
+  "SONICF_.BMP"
+  "SONICE_.BMP"
+  "SONICB_.BMP"
+  "SONIC26.BMP"
+  "SONICA_.BMP"
+  "SONIC16.BMP"
+  "SONIC25.BMP"
+  "SONIC52.BMP"
+  "SONIC69.BMP"
+  "SONIC0C.BMP"
+  "SONIC0E.BMP"
+  "SONIC10.BMP"
+  "SONIC48.BMP"
+  "SONICG_.BMP"
+  "SONIC56.BMP"
+  "SONIC06.BMP"
+  "SONIC09.BMP"
+  "SONIC4B.BMP"
+  "SONIC01.BMP"
+  "SONIC30.BMP"
+];
+
+const grid = document.getElementById('image-grid');
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImg');
+
+let artIndex = 0; // Track which image is open
+
+myArtFiles.forEach((fileName, index) => {
+    const img = document.createElement('img');
+    img.src = `images/${fileName.trim()}`;
+    img.alt = fileName;
+    img.loading = "lazy";
+
+    img.onerror = function() {
+        console.warn(`Image not found or failed to load: ${fileName}`);
+        this.style.display = 'none';
+    };
+    
+img.onclick = function() {
+    artIndex = index;
+    openModal();
+};
+
+    grid.appendChild(img);
+});
+    
+function openModal() {
+    modalImg.src = `images/${myArtFiles[artIndex].trim()}`;
+    modal.style.display = 'flex';
+}
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return; // Only if modal is open
+    
+if (e.key === 'ArrowRight') {
+    artIndex = (artIndex + 1) % myArtFiles.length;
+    openModal();
+}
+else if (e.key === 'ArrowLeft') {
+    artIndex = (artIndex - 1 + myArtFiles.length) % myArtFiles.length;
+    openModal();
+}
+else if (e.key === 'Escape') {
+        modal.style.display = 'none';
+    }
+});
+</script>
