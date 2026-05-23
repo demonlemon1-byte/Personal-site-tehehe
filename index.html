@@ -45,8 +45,56 @@ body {
         .modal img { max-width: 90%; max-height: 90%; }
 
         /* Music Player (Slide 7) */
-        .music-player { text-align: center; margin-top: 20px; }
+        .music-player { text-align: center; margin-top: 20px; position: relative; }
         .controls i { font-size: 2rem; cursor: pointer; margin: 0 10px; }
+
+        /* Nyan Cat Overlay */
+        .nyan-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('nyan/nyan_cat_background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .nyan-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+            z-index: 2;
+        }
+
+        .nyan-overlay.active,
+        .nyan-gif.active {
+            opacity: 1;
+        }
+
+        /* Skid and Pump Overlay */
+        .skid-pump-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease-in-out;
+            z-index: 2;
+        }
+
+        .skid-pump-gif.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -212,12 +260,15 @@ else if (e.key === 'Escape') {
 
         <audio id="audioPlayer" controls style="width: 100%; margin: 15px 0; filter: drop-shadow(0 0 8px #5f9ea0);"></audio>
         
-        <div style="display: flex; justify-content: center; gap: 25px; margin: 20px 0;">
+        <div style="display: flex; justify-content: center; gap: 25px; margin: 20px 0; position: relative; z-index: 10;">
             <button onclick="prevTrack()" style="padding: 12px 28px; background: #5f9ea0; border: none; color: white; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.3s;">◀ Prev</button>
             <button onclick="togglePlay()" id="playPauseBtn" style="padding: 12px 32px; background: #708090; border: none; color: white; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.3s;">Play ▶</button>
             <button onclick="nextTrack()" style="padding: 12px 28px; background: #5f9ea0; border: none; color: white; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.3s;">Next ▶</button>
         </div>
-        <p style="margin-top: 10px; font-size: 0.95em; opacity: 0.9;">Autoplay off; Press Play</p>
+        <p style="margin-top: 10px; font-size: 0.95em; opacity: 0.9; position: relative; z-index: 10;">Autoplay off; Press Play</p>
+
+        <div class="nyan-overlay" id="nyanOverlay"></div>
+        <img class="nyan-gif" id="nyanGif" src="nyan/nya.gif" alt="Nyan Cat">
     </div>
 </section>
 
@@ -227,171 +278,109 @@ const trackTitle = document.getElementById("currentTrack");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const selector = document.getElementById("trackSelector");
 
-// REPLACE THESE URLs with your actual GitHub Pages URLs
-const baseRepo1 = "https://leandrebatts29-ai.github.io/Music-maybe-idfk/mains/"; // tracks 1–99
-const baseRepo2 = "https://leandrebatts29-ai.github.io/MusicTwo/"; // tracks 100–117
-
-// Complete playlist
-const playlist = [
-    // Repo 1: tracks 1–99
-    { file: "01. 5 - 4.mp3", display: "Gorillaz - 5/4 - 2001" },
-    { file: "02. Tomorrow Comes Today.mp3", display: "Gorillaz - Tomorrow Comes Today - 2001" },
-    { file: "03. Clint Eastwood.mp3", display: "Gorillaz - Clint Eastwood - 2001" },
-    { file: "04. Rock The House.mp3", display: "Gorillaz - Rock The House - 2001" },
-    { file: "05. 19 - 2000.mp3", display: "Gorillaz - 19-2000 - 2001" },
-    { file: "06. 19 - 2000 [Soulchild Remix].mp3", display: "Gorillaz - 19-2000 (Soulchild Remix) - 2001" },
-    { file: "07. Left Hand Suzuki Method.mp3", display: "Gorillaz - Left Hand Suzuki Method - 2001" },
-    { file: "08. 12D3.mp3", display: "Gorillaz - 12D3 - 2001" },
-    { file: "09. Intro.mp3", display: "Gorillaz - Intro - 2005" },
-    { file: "10. Rockit.mp3", display: "Gorillaz - Rockit - 2005" },
-    { file: "11. Kids With Guns.mp3", display: "Gorillaz - Kids With Guns - 2005" },
-    { file: "12. O Green World.mp3", display: "Gorillaz - O Green World - 2005" },
-    { file: "13. Dirty Harry.mp3", display: "Gorillaz - Dirty Harry - 2005" },
-    { file: "14. Dare.mp3", display: "Gorillaz - Dare - 2005" },
-    { file: "15. Feel Good Inc..mp3", display: "Gorillaz - Feel Good Inc. - 2005" },
-    { file: "16. El Mañana.mp3", display: "Gorillaz - El Mañana - 2005" },
-    { file: "17. People.mp3", display: "Gorillaz - People - 2005" },
-    { file: "18. Stylo.mp3", display: "Gorillaz - Stylo - 2010" },
-    { file: "19. On Melancholy Hill.mp3", display: "Gorillaz - On Melancholy Hill - 2010" },
-    { file: "20. Broken.mp3", display: "Gorillaz - Broken - 2010" },
-    { file: "21. Empire Ants.mp3", display: "Gorillaz - Empire Ants - 2010" },
-    { file: "22. Rhinestone Eyes.mp3", display: "Gorillaz - Rhinestone Eyes - 2010" },
-    { file: "23. To Binge.mp3", display: "Gorillaz - To Binge - 2010" },
-    { file: "24. Plastic Beach.mp3", display: "Gorillaz - Plastic Beach - 2010" },
-    { file: "25. Seattle Yodel.mp3", display: "Gorillaz - Seattle Yodel - 2010" },
-    { file: "26. Saturnz Barz.mp3", display: "Gorillaz - Saturnz Barz - 2017" },
-    { file: "27. Humility.mp3", display: "Gorillaz - Humility - 2018" },
-    { file: "28. Tranz.mp3", display: "Gorillaz - Tranz - 2018" },
-    { file: "29. Strange Timez.mp3", display: "Gorillaz - Strange Timez - 2020" },
-    { file: "30. Pac Man.mp3", display: "Gorillaz - Pac-Man - 2020" },
-    { file: "31. Aries.mp3", display: "Gorillaz - Aries - 2020" },
-    { file: "32. The Lost Chord.mp3", display: "Gorillaz - The Lost Chord - 2020" },
-    { file: "33. Cracker Island.mp3", display: "Gorillaz - Cracker Island - 2023" },
-    { file: "34. The Happy Dictator ft. Sparks.mp3", display: "Gorillaz - The Happy Dictator (ft. Sparks) - 2026" },
-    { file: "35. The God Of Lying feat. IDLES.mp3", display: "Gorillaz - The God Of Lying (ft. IDLES) - 2026" },
-    { file: "36. Comedy.mp3", display: "Bo Burnham - Comedy - 2020" },
-    { file: "37. How the World Works.mp3", display: "Bo Burnham - How the World Works - 2020" },
-    { file: "38. Unpaid Intern.mp3", display: "Bo Burnham - Unpaid Intern - 2020" },
-    { file: "39. Bezos I.mp3", display: "Bo Burnham - Bezos I - 2020" },
-    { file: "40. Sexting.mp3", display: "Bo Burnham - Sexting - 2020" },
-    { file: "41. Look Who's Inside Again.mp3", display: "Bo Burnham - Look Who's Inside Again - 2020" },
-    { file: "42. Shit.mp3", display: "Bo Burnham - Shit - 2020" },
-    { file: "43. All Eyes On Me.mp3", display: "Bo Burnham - All Eyes On Me - 2020" },
-    { file: "44. Welcome to The Internet.mp3", display: "Bo Burnham - Welcome to the Internet - 2020" },
-    { file: "45. I'm Dancing In The Show Tonight.mp3", display: "Ween - I'm Dancing In The Show Tonight - 1997" },
-    { file: "46. The Mollusk.mp3", display: "Ween - The Mollusk - 1997" },
-    { file: "47. Polka Dot Tail.mp3", display: "Ween - Polka Dot Tail - 1997" },
-    { file: "48. The Blarney Stone.mp3", display: "Ween - The Blarney Stone - 1997" },
-    { file: "49. Ocean Man.mp3", display: "Ween - Ocean Man - 1997" },
-    { file: "50. Confessions of a Rotten Girl.mp3", display: "Hatsune Miku - Confessions of a Rotten Girl - 2010" },
-    { file: "51. M@GICAL☆CURE! LOVE SHOT! (feat. Hatsune Miku).mp3", display: "Hatsune Miku - M@GICAL☆CURE! LOVE SHOT! (ft. Hatsune Miku) - 2019" },
-    { file: "52. Miku.mp3", display: "Hatsune Miku - Miku - 2016" },
-    { file: "53. Static.mp3", display: "Hatsune Miku - Static - 2024" },
-    { file: "54. テト31世 (Teto the 31st).mp3", display: "Hatsune Miku - Teto the 31st - 2023" },
-    { file: "55. み む かゥ わ ナ イ ス ト ラ イ (Mimukauwa Nice Try).mp3", display: "Hatsune Miku - Mimukauwa Nice Try - 2022" },
-    { file: "56. 匿名M (Anonymous M).mp3", display: "Hatsune Miku - Anonymous M - 2019" },
-    { file: "57. メズマライザー (Mesmerizer).mp3", display: "Hatsune Miku - Mesmerizer - 2024" },
-    { file: "58. GIRL HELL 1999.mp3", display: "Femtanyl - GIRL HELL 1999 - 2023" },
-    { file: "59. PUSH UR T3MPRR.mp3", display: "Femtanyl - PUSH UR T3MPRR - 2024" },
-    { file: "60. LOVESICK, CANNIBAL.mp3", display: "Femtanyl - LOVESICK, CANNIBAL - 2024" },
-    { file: "61. ACT RIGHT.mp3", display: "Femtanyl - ACT RIGHT - 2024" },
-    { file: "62. DINNER!.mp3", display: "Femtanyl - DINNER! - 2024" },
-    { file: "63. P3T.mp3", display: "Femtanyl - P3T - 2024" },
-    { file: "64. DOGMATICA.mp3", display: "Femtanyl - DOGMATICA - 2024" },
-    { file: "65. AND I'M GONE.mp3", display: "Femtanyl - AND I'M GONE - 2024" },
-    { file: "66. ATTACKING VERTICAL.mp3", display: "Femtanyl - ATTACKING VERTICAL - 2024" },
-    { file: "67. S33K H3LP.mp3", display: "Femtanyl - S33K H3LP - 2024" },
-    { file: "68. WEIGHTLESS!.mp3", display: "Femtanyl - WEIGHTLESS! - 2024" },
-    { file: "69. MURDER EVERY 1 U KNOW! (feat. takihasdied).mp3", display: "Femtanyl - MURDER EVERY 1 U KNOW! (ft. takihasdied) - 2024" },
-    { file: "70. KATAMARI.mp3", display: "Femtanyl - KATAMARI - 2024" },
-    { file: "71. Hyakugojyuuichi 2003.mp3", display: "Lemon Demon - Hyakugojyuuichi 2003 - 2003" },
-    { file: "72. Dinosaurchestra Part One.mp3", display: "Lemon Demon - Dinosaurchestra Part One - 2006" },
-    { file: "73. Fine.mp3", display: "Lemon Demon - Fine - 2006" },
-    { file: "74. Lawnmower.mp3", display: "Lemon Demon - Lawnmower - 2006" },
-    { file: "75. Vow of Silence.mp3", display: "Lemon Demon - Vow of Silence - 2006" },
-    { file: "76. Eyewishes.mp3", display: "Lemon Demon - Eyewishes - 2006" },
-    { file: "77. Bystanding.mp3", display: "Lemon Demon - Bystanding - 2006" },
-    { file: "78. Indie Cindy & The Lo-Fi Lullabies.mp3", display: "Lemon Demon - Indie Cindy & The Lo-Fi Lullabies - 2006" },
-    { file: "79. Deep In The Ocean.mp3", display: "Lemon Demon - Deep In The Ocean - 2006" },
-    { file: "80. Kaleidoskull.mp3", display: "Lemon Demon - Kaleidoskull - 2008" },
-    { file: "81. Amnesia Was Her Name.mp3", display: "Lemon Demon - Amnesia Was Her Name - 2008" },
-    { file: "82. Marketland.mp3", display: "Lemon Demon - Marketland - 2008" },
-    { file: "83. Knife Fight.mp3", display: "Lemon Demon - Knife Fight - 2008" },
-    { file: "84. Modify.mp3", display: "Lemon Demon - Modify - 2008" },
-    { file: "85. Prelude to Presents.mp3", display: "Lemon Demon - Prelude to Presents - 2012" },
-    { file: "86. Christmas Will Be Soon.mp3", display: "Lemon Demon - Christmas Will Be Soon - 2012" },
-    { file: "87. Aurora Borealis.mp3", display: "Lemon Demon - Aurora Borealis - 2012" },
-    { file: "88. SAD.mp3", display: "Lemon Demon - SAD - 2012" },
-    { file: "89. CryptoSanta.mp3", display: "Lemon Demon - CryptoSanta - 2012" },
-    { file: "90. Really Cool Wig.mp3", display: "Lemon Demon - Really Cool Wig - 2014" },
-    { file: "91. Two Trucks.mp3", display: "Lemon Demon - Two Trucks - 2014" },
-    { file: "92. Jaws.mp3", display: "Lemon Demon - Jaws - 2014" },
-    { file: "93. Lifetime Achievement Award.mp3", display: "Lemon Demon - Lifetime Achievement Award - 2016" },
-    { file: "94. Touch-Tone Telephone.mp3", display: "Lemon Demon - Touch-Tone Telephone - 2016" },
-    { file: "95. Cabinet Man.mp3", display: "Lemon Demon - Cabinet Man - 2016" },
-    { file: "96. Welcome to Tally Hall.mp3", display: "Tally Hall - Welcome to Tally Hall - 2008" },
-    { file: "97. Taken For A Ride.mp3", display: "Tally Hall - Taken For A Ride - 2008" },
-    { file: "98. The Bidding.mp3", display: "Tally Hall - The Bidding - 2008" },
-    { file: "99. Banana Man.mp3", display: "Tally Hall - Banana Man - 2008" },
-    { file: "100. The Whole World and You.mp3", display: "Tally Hall - The Whole World and You - 2008" },
-
-    // Repo 2: tracks 100–117
-    { file: "101. &.mp3", display: "Tally Hall - & - 2011" },
-    { file: "102. Hymn for a Scarecrow.mp3", display: "Tally Hall - Hymn for a Scarecrow - 2011" },
-    { file: "103. Turn the Lights Off.mp3", display: "Tally Hall - Turn the Lights Off - 2011" },
-    { file: "113. 13.mp3", display: "13131 3131 3 13 1 31313" },
-    { file: "114. Ruler of Everything.mp3", display: "Tally Hall - Ruler of Everything - 2008" },
-    { file: "115. Variations on a Cloud.mp3", display: "ミラクルミュージカル - Variations on a Cloud - 2012" },
-    { file: "116. Introduction to the Snow.mp3", display: "ミラクルミュージカル - Introduction to the Snow - 2012" },
-    { file: "117. Isle Unto Thyself.mp3", display: "ミラクルミュージカル - Isle Unto Thyself - 2012" },
-    { file: "118. Black Rainbows.mp3", display: "ミラクルミュージカル - Black Rainbows - 2012" },
-    { file: "119. White Ball.mp3", display: "ミラクルミュージカル - White Ball - 2012" },
-    { file: "120. Murders.mp3", display: "ミラクルミュージカル - Murders - 2012" },
-    { file: "121. 宇宙ステーションのレベル7.mp3", display: "ミラクルミュージカル - 宇宙ステーションのレベル7 - 2012" },
-    { file: "122. The Mind Electric.mp3", display: "ミラクルミュージカル - The Mind Electric - 2012" },
-    { file: "123. Labyrinth.mp3", display: "ミラクルミュージカル - Labyrinth - 2012" },
-    { file: "124. Time Machine.mp3", display: "ミラクルミュージカル - Time Machine - 2012" },
-    { file: "125. Stranded Lullaby.mp3", display: "ミラクルミュージカル - Stranded Lullaby - 2012" },
-    { file: "126. Dream Sweet In Sea Major.mp3", display: "終わりは、本当に終わりじゃないよね？ - Dream Sweet in Sea Major - 1212" },
-    { file: "127. Hidden in the Sand.mp3", display: "Tally Hall - Hidden in the Sand - 2008" }
-];
-
-// Populate dropdown
-playlist.forEach((track, index) => {
-    const option = document.createElement("option");
-    option.value = index;
-    option.textContent = track.display;
-    selector.appendChild(option);
-});
-
+const musicBasePath = "music/";
+let playlist = [];
 let currentIndex = 0;
+let nyanTimeout = null;
+let nyanGifTimeout = null;
+let nyanTimeUpdateHandler = null;
+let skidPumpTimeout = null;
 
-function makeUrlSafe(filename) {
-    // Replace spaces with %20
-    let safe = filename.split(' ').join('%20');
-
-    // Replace special characters that break URLs
-    safe = safe.replace(/&/g, '%26'); // & → %26
-    safe = safe.replace(/!/g, '%21'); // ! → %21
-    safe = safe.replace(/\(/g, '%28'); // ( → %28
-    safe = safe.replace(/\)/g, '%29'); // ) → %29
-
-    // Add more replacements if needed
-    return safe;
+// Load playlist from JSON file
+async function loadPlaylist() {
+    try {
+        const response = await fetch('music-metadata.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        playlist = await response.json();
+        
+        // Populate dropdown
+        playlist.forEach((track, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = track.display;
+            selector.appendChild(option);
+        });
+        
+        // Load first track
+        loadTrack(currentIndex);
+    } catch (error) {
+        trackTitle.textContent = `Error: ${error.message}`;
+    }
 }
+
+// Initialize playlist
+document.addEventListener('DOMContentLoaded', loadPlaylist);
+
 
 // When loading a track
 function loadTrack(index) {
-    if (index < 0 || index >= playlist.length) return;
+    if (index < 0 || index >= playlist.length) {
+        return;
+    }
     const track = playlist[index];
-    const baseUrl = index < 99 ? baseRepo1 : baseRepo2;
+
+    // Clear any existing Nyan Cat and Skid Pump timeouts and event listener
+    clearTimeout(nyanTimeout);
+    clearTimeout(nyanGifTimeout);
+    clearTimeout(skidPumpTimeout);
+    const nyanOverlay = document.getElementById('nyanOverlay');
+    const nyanGif = document.getElementById('nyanGif');
+    const skidPumpGif = document.getElementById('skidPumpGif');
+    if (nyanOverlay) nyanOverlay.classList.remove('active');
+    if (nyanGif) nyanGif.classList.remove('active');
+    if (skidPumpGif) skidPumpGif.classList.remove('active');
+    audio.onplay = null;
+    if (nyanTimeUpdateHandler) {
+        audio.removeEventListener('timeupdate', nyanTimeUpdateHandler);
+        nyanTimeUpdateHandler = null;
+    }
+
+    // Check if this is a special track
+    const isNyanCat = track.file === '094_Nyan Cat Theme.mp3';
+    const isSkidPump = track.file === '106_Scary Swings.mp3';
 
     // Use the URL-safe version
-    audio.src = baseUrl + makeUrlSafe(track.file);
+    audio.src = musicBasePath + (track.file);
     trackTitle.textContent = track.display;
     selector.value = index;
 
     audio.load();
+
+    // Set up Nyan Cat effects if applicable
+    if (isNyanCat) {
+        audio.onplay = () => {
+            nyanTimeout = setTimeout(() => {
+                const nyanOverlay = document.getElementById('nyanOverlay');
+                const nyanGif = document.getElementById('nyanGif');
+                if (nyanOverlay) nyanOverlay.classList.add('active');
+                nyanGifTimeout = setTimeout(() => {
+                    if (nyanGif) nyanGif.classList.add('active');
+                }, 1000);
+            }, 10000);
+        };
+
+        nyanTimeUpdateHandler = () => {
+            if (audio.currentTime >= 108) {
+                audio.currentTime = 3;
+            }
+        };
+        audio.addEventListener('timeupdate', nyanTimeUpdateHandler);
+    }
+
+    // Set up Skid and Pump effects if applicable
+    if (isSkidPump) {
+        audio.onplay = () => {
+            skidPumpTimeout = setTimeout(() => {
+                const skidPumpGif = document.getElementById('skidPumpGif');
+                if (skidPumpGif) skidPumpGif.classList.add('active');
+            }, 10000);
+        };
+    }
+
     audio.onended = () => nextTrack();
 }
     
@@ -401,21 +390,38 @@ function changeTrack(index) {
     playTrack();
 }
 
+function togglePlay() {
+    if (audio.paused) {
+        playTrack();
+    } else {
+        pauseTrack();
+    }
+}
+
 function playTrack() {
-    audio.play().catch(() => console.log("Autoplay blocked :("));
+    audio.play().catch(() => {});
     playPauseBtn.textContent = "Pause ⏸";
 }
 
 function pauseTrack() {
     audio.pause();
     playPauseBtn.textContent = "Play ▶";
-}
-
-function togglePlay() {
-    if (audio.paused) {
-        playTrack();
-    } else {
-        pauseTrack();
+    
+    // Clear Nyan Cat and Skid Pump timeouts and effects when paused
+    clearTimeout(nyanTimeout);
+    clearTimeout(nyanGifTimeout);
+    clearTimeout(skidPumpTimeout);
+    const nyanOverlay = document.getElementById('nyanOverlay');
+    const nyanGif = document.getElementById('nyanGif');
+    const skidPumpGif = document.getElementById('skidPumpGif');
+    if (nyanOverlay) nyanOverlay.classList.remove('active');
+    if (nyanGif) nyanGif.classList.remove('active');
+    if (skidPumpGif) skidPumpGif.classList.remove('active');
+    
+    // Remove timeupdate handler when paused
+    if (nyanTimeUpdateHandler) {
+        audio.removeEventListener('timeupdate', nyanTimeUpdateHandler);
+        nyanTimeUpdateHandler = null;
     }
 }
 
@@ -430,9 +436,6 @@ function prevTrack() {
     loadTrack(currentIndex);
     playTrack();
 }
-
-// Initial load
-loadTrack(currentIndex);
 </script>
 
 <section id="slideshows" class="grey-section">

@@ -1,0 +1,962 @@
+[
+  {
+    "file": "001_02. 5 - 4.mp3",
+    "display": "Gorillaz - 5 / 4 - 2001"
+  },
+  {
+    "file": "002_03. Tomorrow Comes Today.mp3",
+    "display": "Gorillaz - Tomorrow Comes Today - 2001"
+  },
+  {
+    "file": "003_05. Clint Eastwood.mp3",
+    "display": "Gorillaz - Clint Eastwood - 2001"
+  },
+  {
+    "file": "004_10. Rock The House.mp3",
+    "display": "Gorillaz - Rock The House - 2001"
+  },
+  {
+    "file": "005_11. 19 - 2000.mp3",
+    "display": "Gorillaz - 19 - 2000 - 2001"
+  },
+  {
+    "file": "006_16. 19 - 2000 [Soulchild Remix].mp3",
+    "display": "Gorillaz - 19 - 2000 [Soulchild Remix] - 2001"
+  },
+  {
+    "file": "007_09. Left Hand Suzuki Method.mp3",
+    "display": "Gorillaz - Left Hand Suzuki Method - 2001"
+  },
+  {
+    "file": "008_01. Intro.mp3",
+    "display": "Gorillaz - Intro - 2005"
+  },
+  {
+    "file": "009_07. Rockit.mp3",
+    "display": "Gorillaz - Rockit - 2007"
+  },
+  {
+    "file": "010_03. Kids With Guns.mp3",
+    "display": "Gorillaz - Kids With Guns - 2005"
+  },
+  {
+    "file": "011_04. O Green World.mp3",
+    "display": "Gorillaz - O Green World - 2005"
+  },
+  {
+    "file": "012_12. Dare.mp3",
+    "display": "Gorillaz - Dare - 2005"
+  },
+  {
+    "file": "013_05. Dirty Harry.mp3",
+    "display": "Gorillaz - Dirty Harry - 2005"
+  },
+  {
+    "file": "014_06. Feel Good Inc..mp3",
+    "display": "Gorillaz - Feel Good Inc. - 2005"
+  },
+  {
+    "file": "015_07. El Mañana.mp3",
+    "display": "Gorillaz - El Mañana - 2005"
+  },
+  {
+    "file": "016_05. Stylo.mp3",
+    "display": "Gorillaz - Stylo - 2010"
+  },
+  {
+    "file": "017_10. On Melancholy Hill.mp3",
+    "display": "Gorillaz - On Melancholy Hill - 2010"
+  },
+  {
+    "file": "018_11. Broken.mp3",
+    "display": "Gorillaz - Broken - 2010"
+  },
+  {
+    "file": "019_07. Empire Ants.mp3",
+    "display": "Gorillaz - Empire Ants - 2010"
+  },
+  {
+    "file": "020_08. Glitter Freeze.mp3",
+    "display": "Gorillaz - Glitter Freeze - 2010"
+  },
+  {
+    "file": "021_04. Rhinestone Eyes.mp3",
+    "display": "Gorillaz - Rhinestone Eyes - 2010"
+  },
+  {
+    "file": "022_13. Plastic Beach.mp3",
+    "display": "Gorillaz - Plastic Beach - 2010"
+  },
+  {
+    "file": "023_04. Saturnz Barz.mp3",
+    "display": "Gorillaz - Saturnz Barz - 2017"
+  },
+  {
+    "file": "024_01. Humility.mp3",
+    "display": "Gorillaz - Humility - 2018"
+  },
+  {
+    "file": "025_02. Tranz.mp3",
+    "display": "Gorillaz - Tranz - 2018"
+  },
+  {
+    "file": "026_01. Strange Timez.mp3",
+    "display": "Gorillaz - Strange Timez - 2020"
+  },
+  {
+    "file": "027_04. Pac Man.mp3",
+    "display": "Gorillaz - Pac Man - 2020"
+  },
+  {
+    "file": "028_07. Aries.mp3",
+    "display": "Gorillaz - Aries - 2020"
+  },
+  {
+    "file": "029_03. The Lost Chord.mp3",
+    "display": "Gorillaz - The Lost Chord - 2020"
+  },
+  {
+    "file": "030_03. The Happy Dictator.mp3",
+    "display": "030 03. The Happy Dictator"
+  },
+  {
+    "file": "031_06. The God of Lying.mp3",
+    "display": "031 06. The God of Lying"
+  },
+  {
+    "file": "032_Treehouse.mp3",
+    "display": "Alex G - Treehouse - 2011"
+  },
+  {
+    "file": "033_I Wait For You .mp3",
+    "display": "Alex G - I Wait For You  - 2011"
+  },
+  {
+    "file": "034_Break.mp3",
+    "display": "Alex G - Break - 2011"
+  },
+  {
+    "file": "035_Gnaw.mp3",
+    "display": "Alex G - Gnaw - 2010"
+  },
+  {
+    "file": "036_Things to Do.mp3",
+    "display": "Alex G - Things to Do - 2010"
+  },
+  {
+    "file": "037_Bang!.mp3",
+    "display": "AJR - Bang! - 2021"
+  },
+  {
+    "file": "038_World's Smallest Violin.mp3",
+    "display": "AJR - World's Smallest Violin - 2021"
+  },
+  {
+    "file": "039_Way Less Sad.mp3",
+    "display": "AJR - Way Less Sad - 2021"
+  },
+  {
+    "file": "040_Inertia.mp3",
+    "display": "AJR - Inertia - 2023"
+  },
+  {
+    "file": "041_Your New Home.mp3",
+    "display": "Gooseworx - Your New Home - 2023"
+  },
+  {
+    "file": "042_The One Who's Running the Show.mp3",
+    "display": "Gooseworx - The One Who's Running the Show - 2026"
+  },
+  {
+    "file": "043_M@GICAL☆CURE! LOVE SHOT! (feat. Hatsune Miku).mp3",
+    "display": "Hatsune Miku - M@GICAL☆CURE! LOVE SHOT! - 2024"
+  },
+  {
+    "file": "044_Miku.mp3",
+    "display": "Hatsune Miku - Miku - 2016"
+  },
+  {
+    "file": "045_Static.mp3",
+    "display": "Hatsune Miku - Static - 2025"
+  },
+  {
+    "file": "046_テト31世 (Teto the 31st).mp3",
+    "display": "Katsune Teto - テト31世 (Teto the 31st) - 2025"
+  },
+  {
+    "file": "047_み む かゥ わ ナ イ ス ト ラ イ (Mimukauwa Nice Try).mp3",
+    "display": "Hatsune Miku - み む かゥ わ ナ イ ス ト ラ イ (Mimukauwa Nice Try) - 2024"
+  },
+  {
+    "file": "048_匿名M (Anonymous M).mp3",
+    "display": "Hatsune Miku - 匿名M (Anonymous M) - 2023"
+  },
+  {
+    "file": "049_Stayed Gone.mp3",
+    "display": "Hazbin Hotel - Stayed Gone - 2024"
+  },
+  {
+    "file": "050_Loser, Baby.mp3",
+    "display": "Hazbin Hotel - Loser, Baby - 2024"
+  },
+  {
+    "file": "051_Hell’s Greatest Dad.mp3",
+    "display": "Hazbin Hotel - Hell’s Greatest Dad - 2024"
+  },
+  {
+    "file": "052_Once We Get Up There.mp3",
+    "display": "Hazbin Hotel - Once We Get Up There - 2025"
+  },
+  {
+    "file": "053_Don't You Forget (Reprise).mp3",
+    "display": "Hazbin Hotel - Don't You Forget (Reprise) - 2025"
+  },
+  {
+    "file": "054_VOX DEI.mp3",
+    "display": "Hazbin Hotel - VOX DEI - 2025"
+  },
+  {
+    "file": "055_Love In A Bottle.mp3",
+    "display": "Hazbin Hotel - Love In A Bottle - 2025"
+  },
+  {
+    "file": "056_Brighter.mp3",
+    "display": "Hazbin Hotel - Brighter - 2025"
+  },
+  {
+    "file": "057_Buttercup.mp3",
+    "display": "Jack Stauber - Buttercup - 2017"
+  },
+  {
+    "file": "058_Oh Klahoma.mp3",
+    "display": "Jack Stauber - Oh Klahoma - 2017"
+  },
+  {
+    "file": "059_TERRIBLE THINGS.mp3",
+    "display": "AXIE - TERRIBLE THINGS - 2023"
+  },
+  {
+    "file": "060_Five Nights at Freddy's (The Living Tombstone).mp3",
+    "display": "The Living Tombstone - Five Nights at Freddy's Song - 2014"
+  },
+  {
+    "file": "061_It's Been So Long (The Living Tombstone).mp3",
+    "display": "The Living Tombstone - It's Been So Long - 2014"
+  },
+  {
+    "file": "062_Die In A Fire (The Living Tombstone).mp3",
+    "display": "The Living Tombstone - Die In A Fire - 2015"
+  },
+  {
+    "file": "063_I Can't Fix You (The Living Tombstone).mp3",
+    "display": "The Living Tombstone - I Can't Fix You - 2016"
+  },
+  {
+    "file": "064_This Comes From Inside.mp3",
+    "display": "The Living Tombstone - This Comes From Inside - 2022"
+  },
+  {
+    "file": "065_Step On Up.mp3",
+    "display": "The Living Tombstone - Step On Up - 2025"
+  },
+  {
+    "file": "066_Bringing Us Home.mp3",
+    "display": "TryHardNinja - Bringing Us Home - 2015"
+  },
+  {
+    "file": "067_It's Me.mp3",
+    "display": "TryHardNinja - It's Me - 2015"
+  },
+  {
+    "file": "068_Follow Me.mp3",
+    "display": "TryHardNinja - Follow Me - 2015"
+  },
+  {
+    "file": "069_The Puppet Song.mp3",
+    "display": "TryHardNinja - The Puppet Song - 2015"
+  },
+  {
+    "file": "070_Labyrinth.mp3",
+    "display": "CG5 - Labyrinth - 2017"
+  },
+  {
+    "file": "071_Below the Surface.mp3",
+    "display": "Griffinilla - Below the Surface - 2016"
+  },
+  {
+    "file": "072_Stay Calm.mp3",
+    "display": "Griffinilla - Stay Calm - 2015"
+  },
+  {
+    "file": "073_Cuphead Rap.mp3",
+    "display": "JT Music - Cuphead Rap - 2017"
+  },
+  {
+    "file": "074_Brothers in Arms.mp3",
+    "display": "Dagames - Brothers in Arms - 2018"
+  },
+  {
+    "file": "075_The Gospel Of Dismay.mp3",
+    "display": "Dagames - The Gospel Of Dismay - 2017"
+  },
+  {
+    "file": "076_Can't Be Erased.mp3",
+    "display": "JT Music - Can't Be Erased - 2017"
+  },
+  {
+    "file": "077_Basics In Behavior (feat. OR3O).mp3",
+    "display": "The Living Tombstone - Basics In Behavior (feat. OR3O) - 2018"
+  },
+  {
+    "file": "078_You're Mine.mp3",
+    "display": "Dagames - You're Mine - 2019"
+  },
+  {
+    "file": "079_My Ordinary Life.mp3",
+    "display": "The Living Tombstone - My Ordinary Life - 2017"
+  },
+  {
+    "file": "080_Epoch.mp3",
+    "display": "The Living Tombstone - Epoch - 2016"
+  },
+  {
+    "file": "081_Alastor's Game.mp3",
+    "display": "The Living Tombstone - Alastor's Game - 2020"
+  },
+  {
+    "file": "082_THE MUFFIN SONG.mp3",
+    "display": "TomSka - The Muffin Song - 2018"
+  },
+  {
+    "file": "083_Heat Waves.mp3",
+    "display": "Glass Animals - Heat Waves - 2020"
+  },
+  {
+    "file": "084_09. Take A Slice.mp3",
+    "display": "Glass Animals - Take A Slice - 2016"
+  },
+  {
+    "file": "085_08. The Other Side Of Paradise.mp3",
+    "display": "Glass Animals - The Other Side Of Paradise - 2016"
+  },
+  {
+    "file": "086_The Soul Eclectic.mp3",
+    "display": "Chonny Jash - The Soul Eclectic - 2025"
+  },
+  {
+    "file": "087_All the Way (I Believe In Steve).mp3",
+    "display": "Jacksepticeye - All the Way (I Believe In Steve) - 2016"
+  },
+  {
+    "file": "088_Doom Crossing： Eternal Horizons.mp3",
+    "display": "The Chalkeaters - Doom Crossing： Eternal Horizons - 2020"
+  },
+  {
+    "file": "089_Freaks.mp3",
+    "display": "Surf Curse - Freaks - 2021"
+  },
+  {
+    "file": "090_Dumb Ways to Die.mp3",
+    "display": "Tangerine Kitty - Dumb Ways to Die - 2012"
+  },
+  {
+    "file": "091_HEAVEN SAYS..mp3",
+    "display": "chart - HEAVEN SAYS. - 2022"
+  },
+  {
+    "file": "092_I'm Something Else.mp3",
+    "display": "SomethingElseYT - I'm Something Else - 2019"
+  },
+  {
+    "file": "093_Help! Oh Well....mp3",
+    "display": "SomethingElseYT - Help! Oh Well... - 2020"
+  },
+  {
+    "file": "094_Nyan Cat Theme.mp3",
+    "display": "Digidudes - Nyan Cat Theme - 2015"
+  },
+  {
+    "file": "095_Notion.mp3",
+    "display": "The Rare Occasions - Notion - 2021"
+  },
+  {
+    "file": "096_Comedy.mp3",
+    "display": "Bo Burnham - Comedy - 2021"
+  },
+  {
+    "file": "097_How the World Works.mp3",
+    "display": "Bo Burnham - How the World Works - 2021"
+  },
+  {
+    "file": "098_Unpaid Intern.mp3",
+    "display": "Bo Burnham - Unpaid Intern - 2021"
+  },
+  {
+    "file": "099_Bezos I.mp3",
+    "display": "Bo Burnham - Bezos I - 2021"
+  },
+  {
+    "file": "100_1985.mp3",
+    "display": "Bo Burnham - 1985 - 2013"
+  },
+  {
+    "file": "101_Look Who's Inside Again.mp3",
+    "display": "Bo Burnham - Look Who's Inside Again - 2021"
+  },
+  {
+    "file": "102_Shit.mp3",
+    "display": "Bo Burnham - Shit - 2021"
+  },
+  {
+    "file": "103_All Eyes On Me.mp3",
+    "display": "Bo Burnham - All Eyes On Me - 2021"
+  },
+  {
+    "file": "104_Welcome to The Internet.mp3",
+    "display": "Bo Burnham - Welcome to The Internet - 2021"
+  },
+  {
+    "file": "105_Goodbye.mp3",
+    "display": "Bo Burnham - Goodbye - 2021"
+  },
+  {
+    "file": "106_Scary Swings.mp3",
+    "display": "Sr Pelo - Scary Swings - 2022"
+  },
+  {
+    "file": "107_13. Hyakugojyuuichi 2003.mp3",
+    "display": "Lemon Demon - Hyakugojyuuichi 2003 - 2003"
+  },
+  {
+    "file": "108_15 - Smell Like a Cookie All Day.mp3",
+    "display": "Lemon Demon - Smell Like a Cookie All Day - 2005"
+  },
+  {
+    "file": "109_1-1. Dinosaurchestra Part One.mp3",
+    "display": "Lemon Demon - Dinosaurchestra Part One - 2006"
+  },
+  {
+    "file": "110_1-3. Fine.mp3",
+    "display": "Lemon Demon - Fine - 2006"
+  },
+  {
+    "file": "111_1-4. Lawnmower.mp3",
+    "display": "Lemon Demon - Lawnmower - 2006"
+  },
+  {
+    "file": "112_1-6. The Ultimate Showdown of Ultimate Destiny.mp3",
+    "display": "Lemon Demon - The Ultimate Showdown of Ultimate Destiny - 2006"
+  },
+  {
+    "file": "113_1-7. Vow of Silence.mp3",
+    "display": "Lemon Demon - Vow Of Silence - 2006"
+  },
+  {
+    "file": "114_1-8. Neverending Hum.mp3",
+    "display": "Lemon Demon - Neverending Hum - 2006"
+  },
+  {
+    "file": "115_11. Archaeopteryx.mp3",
+    "display": "Lemon Demon - Archaeopteryx - 2006"
+  },
+  {
+    "file": "116_12. Eyewishes.mp3",
+    "display": "Lemon Demon - Eyewishes - 2006"
+  },
+  {
+    "file": "117_13. Bystanding.mp3",
+    "display": "Lemon Demon - Bystanding - 2006"
+  },
+  {
+    "file": "118_14. Indie Cindy & The Lo-Fi Lullabies.mp3",
+    "display": "Lemon Demon - Indie Cindy & The Lo-Fi Lullabies - 2006"
+  },
+  {
+    "file": "119_17. Deep In The Ocean.mp3",
+    "display": "Lemon Demon - Deep In The Ocean - 2006"
+  },
+  {
+    "file": "120_01. Kaleidoskull.mp3",
+    "display": "Lemon Demon - Kaleidoskull - 2008"
+  },
+  {
+    "file": "121_03. Amnesia Was Her Name.mp3",
+    "display": "Lemon Demon - Amnesia Was Her Name - 2008"
+  },
+  {
+    "file": "122_05. The Man in Stripes and Glasses.mp3",
+    "display": "Lemon Demon - The Man in Stripes and Glasses - 2008"
+  },
+  {
+    "file": "123_07. Marketland.mp3",
+    "display": "Lemon Demon - Marketland - 2008"
+  },
+  {
+    "file": "124_09. Gadzooks.mp3",
+    "display": "Lemon Demon - Gadzooks - 2008"
+  },
+  {
+    "file": "125_11. Knife Fight.mp3",
+    "display": "Lemon Demon - Knife Fight - 2008"
+  },
+  {
+    "file": "126_3 - Modify.mp3",
+    "display": "Lemon Demon - Modify - 2008"
+  },
+  {
+    "file": "127_1. Prelude to Presents.mp3",
+    "display": "Lemon Demon - Prelude to Presents - 2012"
+  },
+  {
+    "file": "128_2. Christmas Will Be Soon.mp3",
+    "display": "Lemon Demon - Christmas Will Be Soon - 2012"
+  },
+  {
+    "file": "129_3. Aurora Borealis.mp3",
+    "display": "Lemon Demon - Aurora Borealis - 2012"
+  },
+  {
+    "file": "130_4. SAD.mp3",
+    "display": "Lemon Demon - SAD - 2012"
+  },
+  {
+    "file": "131_5. CryptoSanta.mp3",
+    "display": "Lemon Demon - CryptoSanta - 2012"
+  },
+  {
+    "file": "132_1. Really Cool Wig.mp3",
+    "display": "Lemon Demon - Really Cool Wig - 2014"
+  },
+  {
+    "file": "133_4. Everybody Loves Raymond.mp3",
+    "display": "Lemon Demon - Everybody Loves Raymond - 2014"
+  },
+  {
+    "file": "134_6. Jaws.mp3",
+    "display": "Lemon Demon - Jaws - 2014"
+  },
+  {
+    "file": "135_01 Lifetime Achievement Award.mp3",
+    "display": "135 01 Lifetime Achievement Award"
+  },
+  {
+    "file": "136_02 Touch-Tone Telephone.mp3",
+    "display": "136 02 Touch-Tone Telephone"
+  },
+  {
+    "file": "137_03 Cabinet Man.mp3",
+    "display": "137 03 Cabinet Man"
+  },
+  {
+    "file": "138_09 Soft Fuzzy Man.mp3",
+    "display": "138 09 Soft Fuzzy Man"
+  },
+  {
+    "file": "139_07. Angelfire.mp3",
+    "display": "139 07. Angelfire"
+  },
+  {
+    "file": "140_A-3. You Got a Toothache.mp3",
+    "display": "Lemon Demon - You Got a Toothache - 2020"
+  },
+  {
+    "file": "141_A-01. Indie Cindy & the Lo-Fi Lullabies (Demo).mp3",
+    "display": "Lemon Demon - Indie Cindy & the Lo-Fi Lullabies (Demo) - 2022"
+  },
+  {
+    "file": "142_I MIGHT B3 SICK.mp3",
+    "display": "Femtanyl - I MIGHT B3 SICK - 2023"
+  },
+  {
+    "file": "143_GIRL HELL 1999.mp3",
+    "display": "Femtanyl - GIRL HELL 1999 - 2023"
+  },
+  {
+    "file": "144_PUSH UR T3MPRR.mp3",
+    "display": "Femtanyl - PUSH UR T3MPRR - 2024"
+  },
+  {
+    "file": "145_LOVESICK, CANNIBAL.mp3",
+    "display": "Femtanyl - LOVESICK, CANNIBAL - 2023"
+  },
+  {
+    "file": "146_ACT RIGHT.mp3",
+    "display": "Femtanyl - ACT RIGHT - 2023"
+  },
+  {
+    "file": "147_DINNER!.mp3",
+    "display": "Femtanyl - DINNER! - 2024"
+  },
+  {
+    "file": "148_P3T.mp3",
+    "display": "Femtanyl - P3T - 2023"
+  },
+  {
+    "file": "149_DOGMATICA.mp3",
+    "display": "Femtanyl - DOGMATICA - 2023"
+  },
+  {
+    "file": "150_BODY THE PISTOL.mp3",
+    "display": "Femtanyl - BODY THE PISTOL - 2026"
+  },
+  {
+    "file": "151_AND I'M GONE.mp3",
+    "display": "Femtanyl - AND I'M GONE - 2024"
+  },
+  {
+    "file": "152_ATTACKING VERTICAL.mp3",
+    "display": "Femtanyl - ATTACKING VERTICAL - 2024"
+  },
+  {
+    "file": "153_WORLDWID3 .mp3",
+    "display": "Femtanyl - WORLDWID3 - 2024"
+  },
+  {
+    "file": "154_S33K H3LP.mp3",
+    "display": "Femtanyl - S33K H3LP - 2023"
+  },
+  {
+    "file": "155_WEIGHTLESS!.mp3",
+    "display": "Femtanyl - WEIGHTLESS! - 2024"
+  },
+  {
+    "file": "156_HEAD UP.mp3",
+    "display": "Femtanyl - HEAD UP - 2026"
+  },
+  {
+    "file": "157_MAGFEST.mp3",
+    "display": "Femtanyl - MAGFEST - 2026"
+  },
+  {
+    "file": "158_NASTYWERKKKK!.mp3",
+    "display": "Femtanyl - NASTYWERKKKK! - 2025"
+  },
+  {
+    "file": "159_MURDER EVERY 1 U KNOW! (feat. takihasdied).mp3",
+    "display": "Femtanyl - MURDER EVERY 1 U KNOW! (feat. takihasdied) - 2023"
+  },
+  {
+    "file": "160_KATAMARI.mp3",
+    "display": "Femtanyl - KATAMARI - 2023"
+  },
+  {
+    "file": "161_Jackie Blue.mp3",
+    "display": "The Ozark Mountain Daredevils - Jackie Blue - 1974"
+  },
+  {
+    "file": "162_Rape Me.mp3",
+    "display": "Toxic Lipstick - Rape Me - 2007"
+  },
+  {
+    "file": "163_Me And My Madness.mp3",
+    "display": "Heavenly - Me And My Madness - 1994"
+  },
+  {
+    "file": "164_People Eater.mp3",
+    "display": "Sodikken - People Eater - 2021"
+  },
+  {
+    "file": "165_Gorof (Elixir).mp3",
+    "display": "Dur Dur Band - Gorof (Elixir) - 2017"
+  },
+  {
+    "file": "166_I'm Dancing In The Show Tonight.mp3",
+    "display": "Ween - I'm Dancing In The Show Tonight - 1990"
+  },
+  {
+    "file": "167_The Mollusk.mp3",
+    "display": "Ween - The Mollusk - 1990"
+  },
+  {
+    "file": "168_Polka Dot Tail.mp3",
+    "display": "Ween - Polka Dot Tail - 1990"
+  },
+  {
+    "file": "169_The Blarney Stone.mp3",
+    "display": "Ween - The Blarney Stone - 1990"
+  },
+  {
+    "file": "170_05 - Labyrinth Zone.mp3",
+    "display": "SEGA - Labyrinth Zone - 1991"
+  },
+  {
+    "file": "171_06 - Star Light Zone.mp3",
+    "display": "SEGA - Star Light Zone - 1991"
+  },
+  {
+    "file": "172_26 - Emerald Hill (2P).mp3",
+    "display": "SEGA - Emerald Hill (2 Player) - 1992"
+  },
+  {
+    "file": "173_27 - Casino Night (2P).mp3",
+    "display": "SEGA - Casino Night (2 Player) - 1992"
+  },
+  {
+    "file": "174_28 - Mystic Cave (2P).mp3",
+    "display": "SEGA - Mystic Cave (2 Player) - 1992"
+  },
+  {
+    "file": "175_31 - Hidden Palace Zone.mp3",
+    "display": "SEGA - The Hidden Palace - 1992"
+  },
+  {
+    "file": "176_03 - Data Select.mp3",
+    "display": "SEGA - Data Select - 1994"
+  },
+  {
+    "file": "177_07 - Hydrocity Zone Act 1.mp3",
+    "display": "SEGA - Hydrocity Zone Act 1 - 1994"
+  },
+  {
+    "file": "178_13 - IceCap Zone Act 1.mp3",
+    "display": "SEGA - IceCap Zone Act 1 - 1994"
+  },
+  {
+    "file": "179_24 - Lava Reef Zone Act 2.mp3",
+    "display": "SEGA - Lava Reef Zone Act 2 - 1994"
+  },
+  {
+    "file": "180_28 - The Doomsday Zone.mp3",
+    "display": "SEGA - The Doomsday Zone - 1994"
+  },
+  {
+    "file": "181_60 - Final Boss (Big Arms).mp3",
+    "display": "SEGA - Final Boss (Big Arms) - 1994"
+  },
+  {
+    "file": "182_41 - Azure Lake.mp3",
+    "display": "SEGA - Azure Lake - 1994"
+  },
+  {
+    "file": "183_68 - Knuckles' Theme.mp3",
+    "display": "SEGA - Knuckles' Theme - 1994"
+  },
+  {
+    "file": "184_01 - Palmtree Panic Zone Past.mp3",
+    "display": "SEGA - Palmtree Panic Zone: Past - 1993"
+  },
+  {
+    "file": "185_07 - Collision Chaos Zone Good Future.mp3",
+    "display": "SEGA - Collision Chaos Zone: Good Future - 1993"
+  },
+  {
+    "file": "186_15 - Quartz Quadrant Zone Good Future.mp3",
+    "display": "SEGA - Quartz Quadrant Zone: Good Future - 1993"
+  },
+  {
+    "file": "187_20 - Wacky Workbench Zone Bad Future.mp3",
+    "display": "SEGA - Wacky Workbench Zone: Bad Future - 1993"
+  },
+  {
+    "file": "188_23 - Stardust Speedway Zone Good Future.mp3",
+    "display": "SEGA - Stardust Speedway Zone: Good Future - 1993"
+  },
+  {
+    "file": "189_24 - Stardust Speedway Zone Bad Future (hue hue hue).mp3",
+    "display": "SEGA - Stardust Speedway Zone: Bad Future - 1993"
+  },
+  {
+    "file": "190_27 - Metallic Madness Zone Good Future.mp3",
+    "display": "SEGA - Metallic Madness Zone: Good Future - 1993"
+  },
+  {
+    "file": "191_28 - Metallic Madness Zone Bad Future.mp3",
+    "display": "SEGA - Metallic Madness Zone: Bad Future - 1993"
+  },
+  {
+    "file": "192_36 - Special Stage Theme.mp3",
+    "display": "SEGA - Special Stage Theme - 1993"
+  },
+  {
+    "file": "193_37 -Little Planet.mp3",
+    "display": "SEGA - Little Planet - 1993"
+  },
+  {
+    "file": "194_38 - You Can Do Anything!.mp3",
+    "display": "SEGA - You Can Do Anything! - 1993"
+  },
+  {
+    "file": "195_39 - Ending Theme.mp3",
+    "display": "SEGA - Ending Theme - 1993"
+  },
+  {
+    "file": "196_history.mp3",
+    "display": "SEGA - History - 2002"
+  },
+  {
+    "file": "197_manual.mp3",
+    "display": "SEGA - Manual - 2002"
+  },
+  {
+    "file": "198_menu.mp3",
+    "display": "SEGA - Menu - 2002"
+  },
+  {
+    "file": "199_Music 24 A.mp3",
+    "display": "SEGA - 24 A - 2002"
+  },
+  {
+    "file": "200_Welcome To Tally Hall.mp3",
+    "display": "200 Welcome To Tally Hall"
+  },
+  {
+    "file": "201_Taken For A Ride.mp3",
+    "display": "201 Taken For A Ride"
+  },
+  {
+    "file": "202_The Bidding.mp3",
+    "display": "202 The Bidding"
+  },
+  {
+    "file": "203_Banana Man.mp3",
+    "display": "203 Banana Man"
+  },
+  {
+    "file": "204_The Whole World And You.mp3",
+    "display": "204 The Whole World And You"
+  },
+  {
+    "file": "205_&.mp3",
+    "display": "Tally Hall - & - 2011"
+  },
+  {
+    "file": "206_A Lady.mp3",
+    "display": "Tally Hall - A Lady - 2011"
+  },
+  {
+    "file": "207_Hymn for a Scarecrow.mp3",
+    "display": "Tally Hall - Hymn for a Scarecrow - 2011"
+  },
+  {
+    "file": "208_Turn the Lights Off.mp3",
+    "display": "Tally Hall - Turn the Lights Off - 2011"
+  },
+  {
+    "file": "209_13.mp3",
+    "display": "209 13"
+  },
+  {
+    "file": "210_Ruler Of Everything.mp3",
+    "display": "210 Ruler Of Everything"
+  },
+  {
+    "file": "211_Variations on a Cloud.mp3",
+    "display": "ミラクルミュージカル - Variations on a Cloud - 2012"
+  },
+  {
+    "file": "212_Introduction to the Snow.mp3",
+    "display": "ミラクルミュージカル - Introduction to the Snow - 2012"
+  },
+  {
+    "file": "213_Isle Unto Thyself.mp3",
+    "display": "ミラクルミュージカル - Isle Unto Thyself - 2012"
+  },
+  {
+    "file": "214_Black Rainbows.mp3",
+    "display": "ミラクルミュージカル - Black Rainbows - 2012"
+  },
+  {
+    "file": "215_White Ball.mp3",
+    "display": "ミラクルミュージカル - White Ball - 2012"
+  },
+  {
+    "file": "216_Murders.mp3",
+    "display": "ミラクルミュージカル - Murders - 2012"
+  },
+  {
+    "file": "217_宇宙ステーションのレベル7.mp3",
+    "display": "ミラクルミュージカル - 宇宙ステーションのレベル7 - 2012"
+  },
+  {
+    "file": "218_The Mind Electric.mp3",
+    "display": "ミラクルミュージカル - The Mind Electric - 2012"
+  },
+  {
+    "file": "219_Labyrinth.mp3",
+    "display": "ミラクルミュージカル - Labyrinth - 2012"
+  },
+  {
+    "file": "220_Time Machine.mp3",
+    "display": "ミラクルミュージカル - Time Machine - 2012"
+  },
+  {
+    "file": "221_Sranded Lullaby.mp3",
+    "display": "ミラクルミュージカル - Sranded Lullaby - 2012"
+  },
+  {
+    "file": "222_Dream Sweet In Sea Major.mp3",
+    "display": "ミラクルミュージカル - Dream Sweet In Sea Major - 2012"
+  },
+  {
+    "file": "223_Hidden In The Sand.mp3",
+    "display": "223 Hidden In The Sand"
+  },
+  {
+    "file": "224_Continue.mp3",
+    "display": "ミラクルミュージカル - Continue? - 2015"
+  },
+  {
+    "file": "225_Hey, Doctor Doctor.mp3",
+    "display": "Milk In The Microwave - Hey, Doctor Doctor - 2023"
+  },
+  {
+    "file": "226_every day.mp3",
+    "display": "bo en - every day - 2013"
+  },
+  {
+    "file": "227_pale machine.mp3",
+    "display": "bo en - pale machine - 2013"
+  },
+  {
+    "file": "228_my time.mp3",
+    "display": "bo en - my time - 2013"
+  },
+  {
+    "file": "229_Nimbasa Core.mp3",
+    "display": "DemonLemon - Nimbasa Core - 2026"
+  },
+  {
+    "file": "230_Bumblebees Are Out.mp3",
+    "display": "DemonLemon - Bumblebees Are Out - 2026"
+  },
+  {
+    "file": "231_K.K. Chorale.mp3",
+    "display": "DemonLemon - K.K. Chorale - 2026"
+  },
+  {
+    "file": "232_The Mind Electric (Demo 4).mp3",
+    "display": "DemonLemon - The Mind Electric (Demo 4) - 2026"
+  },
+  {
+    "file": "233_Treehouse.mp3",
+    "display": "DemonLemon - Treehouse - 2026"
+  },
+  {
+    "file": "234_Just Take My Wallet.mp3",
+    "display": "DemonLemon - Just Take My Wallet - 2026"
+  },
+  {
+    "file": "235_Still Life.mp3",
+    "display": "DemonLemon - Still Life - 2026"
+  },
+  {
+    "file": "236_Oh Klahoma.mp3",
+    "display": "DemonLemon - Oh Klahoma - 2026"
+  },
+  {
+    "file": "237_I'd Rather Sleep.mp3",
+    "display": "DemonLemon - I'd Rather Sleep - 2026"
+  },
+  {
+    "file": "238_Mr. Sandman.mp3",
+    "display": "DemonLemon - Mr. Sandman - 2026"
+  },
+  {
+    "file": "239_Sayo-Nara.mp3",
+    "display": "DemonLemon - Sayo-Nara - 2026"
+  },
+  {
+    "file": "240_Kyomi's Lullaby.mp3",
+    "display": "DemonLemon - Kyomi's Lullaby - 2026"
+  }
+]

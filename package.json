@@ -1,0 +1,12 @@
+{
+  "name": "personal-site-music-scanner",
+  "version": "1.0.0",
+  "description": "Scan music directory and extract metadata for music player",
+  "main": "scan-music.js",
+  "scripts": {
+    "scan": "node scan-music.js"
+  },
+  "dependencies": {
+    "music-metadata": "^8.1.4"
+  }
+}
